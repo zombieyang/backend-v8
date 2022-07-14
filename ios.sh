@@ -21,13 +21,12 @@ gclient sync
 # git apply --cached $GITHUB_WORKSPACE/patch/builtins-puerts.patch
 # git checkout -- .
 
-echo "=====[ add ArrayBuffer_New_Without_Stl ]====="
-node $GITHUB_WORKSPACE/add_arraybuffer_new_without_stl.js .
+# echo "=====[ add ArrayBuffer_New_Without_Stl ]====="
+# node $GITHUB_WORKSPACE/add_arraybuffer_new_without_stl.js .
 
 echo "=====[ Building V8 ]====="
 python ./tools/dev/v8gen.py arm64.release -vv -- '
 v8_use_external_startup_data = true
-v8_use_snapshot = true
 v8_enable_i18n_support = false
 is_debug = false
 v8_static_library = true
