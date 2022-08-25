@@ -181,6 +181,10 @@ jobs:
     name: macOS
     runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+        python --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -197,6 +201,10 @@ jobs:
     name: macOS with apple m1
     runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+        python --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -213,6 +221,10 @@ jobs:
     name: macOS-DLL
     runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+        python --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -229,6 +241,10 @@ jobs:
     name: iOS
     runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+        python --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -241,20 +257,24 @@ jobs:
         name: v8_bin
         path: ~/v8/v8/output/**/*
   
-  #build_ios_simulator:
-  #  name: iOS simulator
-  #  runs-on: macos-11
-  #  steps:
-  #  - uses: actions/checkout@v2
-  #  - name: Run build script
-  #    run: |
-  #      cd $GITHUB_WORKSPACE
-  #      npm i
-  #      sh ./ios_simulator.sh ${{env.VERSION}}
-  #  - uses: actions/upload-artifact@v2
-  #    with:
-  #      name: v8_bin
-  #      path: ~/v8/v8/output/**/*
+  build_ios_simulator:
+    name: iOS simulator
+    runs-on: macos-11
+    steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+        python --version
+    - uses: actions/checkout@v2
+    - name: Run build script
+      run: |
+        cd $GITHUB_WORKSPACE
+        npm i
+        sh ./ios_simulator.sh ${{env.VERSION}}
+    - uses: actions/upload-artifact@v2
+      with:
+        name: v8_bin
+        path: ~/v8/v8/output/**/*
         
   publish:
     runs-on: ubuntu-latest
