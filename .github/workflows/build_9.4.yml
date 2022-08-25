@@ -183,8 +183,11 @@ jobs:
     steps:
     - name: use python3.9
       run: |
+        python --version
+        python3 --version
         brew install python@3.9
         python --version
+        python3 --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -203,8 +206,11 @@ jobs:
     steps:
     - name: use python3.9
       run: |
+        python --version
+        python3 --version
         brew install python@3.9
         python --version
+        python3 --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -223,8 +229,11 @@ jobs:
     steps:
     - name: use python3.9
       run: |
+        python --version
+        python3 --version
         brew install python@3.9
         python --version
+        python3 --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -243,8 +252,11 @@ jobs:
     steps:
     - name: use python3.9
       run: |
+        python --version
+        python3 --version
         brew install python@3.9
         python --version
+        python3 --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
@@ -263,8 +275,11 @@ jobs:
     steps:
     - name: use python3.9
       run: |
+        python --version
+        python3 --version
         brew install python@3.9
         python --version
+        python3 --version
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
