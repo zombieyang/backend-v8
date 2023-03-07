@@ -2,12 +2,14 @@ set VERSION=%1
 
 cd %HOMEPATH%
 echo =====[ Getting Depot Tools ]=====
-powershell -command "Invoke-WebRequest https://storage.googleapis.com/chrome-infra/depot_tools.zip -O depot_tools.zip"
-7z x depot_tools.zip -o*
+call git clone -q https://chromium.googlesource.com/chromium/tools/depot_tools.git
+cd depot_tools
+call git reset --hard 8d16d4a
+cd ..
 set PATH=%CD%\depot_tools;%PATH%
 set GYP_MSVS_VERSION=2019
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
-call gclient.bat
+call gclient config
 
 
 mkdir v8
@@ -21,7 +23,7 @@ cd test\test262\data
 call git config --system core.longpaths true
 call git restore *
 cd ..\..\..\
-call gclient.bat sync
+call gclient sync
 
 @REM echo =====[ Patching V8 ]=====
 @REM node %GITHUB_WORKSPACE%\CRLF2LF.js %GITHUB_WORKSPACE%\patches\builtins-puerts.patches

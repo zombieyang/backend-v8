@@ -10,7 +10,7 @@ set DEPOT_TOOLS_UPDATE=0
 set PATH=%CD%\depot_tools;%PATH%
 set GYP_MSVS_VERSION=2019
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
-call gclient.bat
+call gclient config
 
 
 mkdir v8
@@ -24,7 +24,7 @@ cd test\test262\data
 call git config --system core.longpaths true
 call git restore *
 cd ..\..\..\
-call gclient.bat sync
+call gclient sync
 
 @REM echo =====[ Patching V8 ]=====
 @REM node %GITHUB_WORKSPACE%\CRLF2LF.js %GITHUB_WORKSPACE%\patches\builtins-puerts.patches
