@@ -1,4 +1,4 @@
-name: build v8 (deprecated)
+name: build v8 10.8
 
 on: 
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
 #libwee8按设计只支持wasm，不支持js，但8.4.371.19版本尚未移除js功能，还能用，如果升级v8版本要注意
 #libmonolith会稳妥一些，但静态库大小会大些
 env:
-  VERSION: 8.4.371.19
+  VERSION: 10.8
 
 jobs:
   build_android_arm_v8:
@@ -22,7 +22,9 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./android_armv8.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -36,7 +38,9 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./android_armv7.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -50,7 +54,9 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./android_x64.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -64,7 +70,24 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./linux.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
+    - uses: actions/upload-artifact@v2
+      with:
+        name: v8_bin
+        path: ~/v8/v8/output/**/*
+        
+  build_linux_arm64:
+    name: Linux_arm64
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run build script
+      run: |
+        cd $GITHUB_WORKSPACE
+        sh ./linux_arm64.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -79,7 +102,12 @@ jobs:
       shell: cmd
       run: |
         cd %GITHUB_WORKSPACE%
+        call npm i
         call .\windows_64.cmd ${{env.VERSION}}
+    - name: Rename
+      shell: bash
+      run: |
+        mv v8/v8/output/v8 v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -99,7 +127,12 @@ jobs:
       shell: cmd
       run: |
         cd %GITHUB_WORKSPACE%
+        call npm i
         call .\windows_64MD.cmd ${{env.VERSION}}
+    - name: Rename
+      shell: bash
+      run: |
+        mv v8/v8/output/v8 v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -114,7 +147,12 @@ jobs:
       shell: cmd
       run: |
         cd %GITHUB_WORKSPACE%
-        call .\windows_64MD_DLL.cmd ${{env.VERSION}}
+        call npm i
+        call .\windows_64MD_DLL_94.cmd ${{env.VERSION}}
+    - name: Rename
+      shell: bash
+      run: |
+        mv v8/v8/output/v8 v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -129,7 +167,12 @@ jobs:
       shell: cmd
       run: |
         cd %GITHUB_WORKSPACE%
+        call npm i
         call .\windows_32.cmd ${{env.VERSION}}
+    - name: Rename
+      shell: bash
+      run: |
+        mv v8/v8/output/v8 v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -137,15 +180,39 @@ jobs:
           
   build_macos:
     name: macOS
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
     - uses: actions/checkout@v2
-    - name: Use Xcode 12.0 to use SDK 10.15
-      run: sudo xcode-select -switch "/Applications/Xcode_12.app"
     - name: Run build script
       run: |
+        export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./macos.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
+    - uses: actions/upload-artifact@v2
+      with:
+        name: v8_bin
+        path: ~/v8/v8/output/**/*
+          
+  build_macos_arm64:
+    name: macOS with apple m1
+    runs-on: macos-11
+    steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+    - uses: actions/checkout@v2
+    - name: Run build script
+      run: |
+        export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
+        cd $GITHUB_WORKSPACE
+        npm i
+        sh ./macos_arm64.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -153,15 +220,19 @@ jobs:
         
   build_macos_dll:
     name: macOS-DLL
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
     - uses: actions/checkout@v2
-    - name: Use Xcode 12.0 to use SDK 10.15
-      run: sudo xcode-select -switch "/Applications/Xcode_12.app"
     - name: Run build script
       run: |
+        export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./macos_DLL.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
@@ -169,39 +240,47 @@ jobs:
 
   build_ios:
     name: iOS
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
     - uses: actions/checkout@v2
-    - name: Use Xcode 12.0 to use SDK 10.15
-      run: sudo xcode-select -switch "/Applications/Xcode_12.app"
     - name: Run build script
       run: |
+        export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
         cd $GITHUB_WORKSPACE
+        npm i
         sh ./ios.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
         path: ~/v8/v8/output/**/*
   
-  #build_ios_simulator:
-  #  name: iOS simulator
-  #  runs-on: macos-10.15
-  #  steps:
-  #  - uses: actions/checkout@v2
-  #  - name: Use Xcode 12.0 to use SDK 10.15
-  #    run: sudo xcode-select -switch "/Applications/Xcode_12.app"
-  #  - name: Run build script
-  #    run: |
-  #      cd $GITHUB_WORKSPACE
-  #      sh ./ios_simulator.sh ${{env.VERSION}}
-  #  - uses: actions/upload-artifact@v2
-  #    with:
-  #      name: v8_bin
-  #      path: ~/v8/v8/output/**/*
+  build_ios_simulator:
+    name: iOS simulator
+    runs-on: macos-11
+    steps:
+    - name: use python3.9
+      run: |
+        brew install python@3.9
+    - uses: actions/checkout@v2
+    - name: Run build script
+      run: |
+        export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
+        cd $GITHUB_WORKSPACE
+        npm i
+        sh ./ios_simulator.sh ${{env.VERSION}}
+        mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_10.2
+    - uses: actions/upload-artifact@v2
+      with:
+        name: v8_bin
+        path: ~/v8/v8/output/**/*
         
   publish:
     runs-on: ubuntu-latest
-    needs: [build_android_arm_v8,build_android_arm_v7,build_android_x86_64,build_linux,build_windows,build_windows_md,build_windows_32,build_macos,build_ios,build_windows_md_dll,build_macos_dll]
+    needs: [build_android_arm_v8,build_android_arm_v7,build_android_x86_64,build_linux,build_linux_arm64,build_windows,build_windows_32,build_windows_md,build_macos_arm64,build_macos,build_ios,build_windows_md_dll,build_macos_dll]
     steps:
       - uses: actions/download-artifact@v1
         with:
@@ -210,7 +289,7 @@ jobs:
           
       - name: Create Release Asset
         run: |
-          cd v8_bin/ && tar cvfz ../v8_bin_${{env.VERSION}}.tgz v8 && cd -
+          cd v8_bin/ && tar cvfz ../v8_bin_${{env.VERSION}}.tgz v8_10.2 && cd -
           
       - name: Create Release
         id: create_release
