@@ -32,8 +32,8 @@ node $GITHUB_WORKSPACE/node-script/add_arraybuffer_new_without_stl.js .
 
 echo "=====[ Building V8 ]====="
 python ./tools/dev/v8gen.py arm64.release -vv -- '
-v8_use_external_startup_data = true
-v8_use_snapshot = true
+v8_use_external_startup_data = false
+v8_use_snapshot = false
 v8_enable_i18n_support = false
 is_debug = false
 v8_static_library = true
@@ -44,15 +44,12 @@ v8_enable_pointer_compression = false
 use_xcode_clang = true
 enable_ios_bitcode = true
 symbol_level = 0
-libcxx_abi_unstable = false
+use_custom_libcxx=false 
+is_component_build=false
 '
 ninja -C out.gn/arm64.release -t clean
 ninja -C out.gn/arm64.release wee8
 strip -S out.gn/arm64.release/obj/libwee8.a
 
-node $GITHUB_WORKSPACE/node-script/genBlobHeader.js "ios arm64(bitcode)" out.gn/arm64.release/snapshot_blob.bin
-
 mkdir -p output/v8/Lib/iOS/bitcode
 cp out.gn/arm64.release/obj/libwee8.a output/v8/Lib/iOS/bitcode/
-mkdir -p output/v8/Inc/Blob/iOS/bitcode
-cp SnapshotBlob.h output/v8/Inc/Blob/iOS/bitcode/

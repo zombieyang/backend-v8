@@ -30,8 +30,8 @@ node $GITHUB_WORKSPACE/node-script/add_arraybuffer_new_without_stl.js .
 
 echo "=====[ Building V8 ]====="
 python ./tools/dev/v8gen.py arm64.release -vv -- '
-v8_use_external_startup_data = true
-v8_use_snapshot = true
+v8_use_external_startup_data = false
+v8_use_snapshot = false
 v8_enable_i18n_support = false
 is_debug = false
 v8_static_library = true
@@ -39,7 +39,8 @@ ios_enable_code_signing = false
 target_os = "ios"
 target_cpu = "arm64"
 v8_enable_pointer_compression = false
-libcxx_abi_unstable = false
+use_custom_libcxx=false 
+is_component_build=false
 '
 ninja -C out.gn/arm64.release -t clean
 ninja -C out.gn/arm64.release wee8
