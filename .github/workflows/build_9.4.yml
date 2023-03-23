@@ -251,7 +251,7 @@ jobs:
         export PATH=/usr/local/opt/python@3.9/libexec/bin:$PATH
         cd $GITHUB_WORKSPACE
         npm i
-        sh ./ios.sh ${{env.VERSION}}
+        sh ./ios_bitcode.sh ${{env.VERSION}}
         mv ~/v8/v8/output/v8 ~/v8/v8/output/v8_9.4
     - uses: actions/upload-artifact@v2
       with:
