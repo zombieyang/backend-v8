@@ -30,9 +30,9 @@ jobs:
 
   build_android_arm_v7:
     name: Android (armeabi-v7a)
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     container:
-      image: ubuntu:18.04
+      image: ubuntu:20.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
@@ -46,7 +46,7 @@ jobs:
         
   build_android_x86_64:
     name: Android (x86_64)
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
@@ -60,7 +60,7 @@ jobs:
         
   build_linux:
     name: Linux
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
@@ -74,7 +74,7 @@ jobs:
         
   build_linux_arm64:
     name: Linux_arm64
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
