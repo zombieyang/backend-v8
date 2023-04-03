@@ -30,9 +30,9 @@ jobs:
 
   build_android_arm_v7:
     name: Android (armeabi-v7a)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     container:
-      image: ubuntu:20.04
+      image: ubuntu:18.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
