@@ -64,7 +64,6 @@ use_goma = false
 v8_use_snapshot = true
 v8_use_external_startup_data = true
 v8_static_library = true
-strip_absolute_paths_from_debug_symbols = false
 strip_debug_info = false
 symbol_level=1
 use_custom_libcxx=false
