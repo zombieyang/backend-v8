@@ -1,6 +1,7 @@
 VERSION=$1
 [ -z "$GITHUB_WORKSPACE" ] && GITHUB_WORKSPACE="$( cd "$( dirname "$0" )"/.. && pwd )"
 
+apt-get update
 apt-get install -y \
     git \
     pkg-config \
@@ -13,7 +14,6 @@ apt-get install -y \
     xz-utils \
     zip
 
-apt-get update
 apt-get install -y libatomic1-i386-cross
 rm -rf /var/lib/apt/lists/*
 
