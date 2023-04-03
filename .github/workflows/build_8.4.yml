@@ -38,7 +38,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
-        sh ./android_armv7.sh ${{env.VERSION}}
+        DEBIAN_FRONTEND=noninteractive sh ./android_armv7.sh ${{env.VERSION}}
     - uses: actions/upload-artifact@v2
       with:
         name: v8_bin
