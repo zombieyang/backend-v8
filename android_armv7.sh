@@ -17,8 +17,6 @@ apt-get install -y \
     zip \
     libatomic1-i386-cross
 rm -rf /var/lib/apt/lists/*
-which python3
-ln -s /usr/bin/python3 /usr/bin/python
 
 cd ~
 echo "=====[ Getting Depot Tools ]====="	
