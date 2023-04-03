@@ -37,6 +37,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
+        alias python=python3
         cd $GITHUB_WORKSPACE
         DEBIAN_FRONTEND=noninteractive sh ./android_armv7.sh ${{env.VERSION}}
     - uses: actions/upload-artifact@v2
