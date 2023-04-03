@@ -15,6 +15,7 @@ apt-get install -y \
     python3 \
     xz-utils \
     zip \
+    ninja \
     libatomic1-i386-cross
 rm -rf /var/lib/apt/lists/*
 
