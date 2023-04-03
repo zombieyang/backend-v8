@@ -1,7 +1,8 @@
 VERSION=$1
 [ -z "$GITHUB_WORKSPACE" ] && GITHUB_WORKSPACE="$( cd "$( dirname "$0" )"/.. && pwd )"
 
-sudo apt-get install -y \
+apt-get install -y \
+    git \
     pkg-config \
     git \
     subversion \
@@ -12,9 +13,9 @@ sudo apt-get install -y \
     xz-utils \
     zip
 
-sudo apt-get update
-sudo apt-get install -y libatomic1-i386-cross
-sudo rm -rf /var/lib/apt/lists/*
+apt-get update
+apt-get install -y libatomic1-i386-cross
+rm -rf /var/lib/apt/lists/*
 
 cd ~
 echo "=====[ Getting Depot Tools ]====="	
