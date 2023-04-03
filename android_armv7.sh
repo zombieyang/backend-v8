@@ -11,6 +11,8 @@ apt-get install -y \
     wget \
     build-essential \
     python \
+    nodejs \
+    python3 \
     xz-utils \
     zip
 
