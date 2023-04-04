@@ -1,6 +1,26 @@
 VERSION=$1
 [ -z "$GITHUB_WORKSPACE" ] && GITHUB_WORKSPACE="$( cd "$( dirname "$0" )"/.. && pwd )"
 
+apt-get update
+apt-get install -y \
+    lsb-core \
+    git \
+    curl 	\
+    lbzip2 \
+    pkg-config \
+    git \
+    subversion \
+    curl \
+    wget \
+    build-essential \
+    nodejs \
+    python \
+    python3 \
+    xz-utils \
+    zip 
+   
+rm -rf /var/lib/apt/lists/*
+
 cd ~
 echo "=====[ Getting Depot Tools ]====="	
 git clone -q https://chromium.googlesource.com/chromium/tools/depot_tools.git
