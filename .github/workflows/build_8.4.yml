@@ -61,6 +61,8 @@ jobs:
   build_linux:
     name: Linux
     runs-on: ubuntu-20.04
+    container:
+      image: ubuntu:18.04
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
