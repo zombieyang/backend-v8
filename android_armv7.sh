@@ -4,6 +4,7 @@ VERSION=$1
 apt-get update
 apt-get install -y \
     lsb-core \
+    lib32stdc++6 \
     git \
     curl 	\
     lbzip2 \
