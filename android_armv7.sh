@@ -3,7 +3,10 @@ VERSION=$1
 
 apt-get update
 apt-get install -y \
+    lsb-core \
     git \
+    curl 	\
+    lbzip2 \
     pkg-config \
     git \
     subversion \
@@ -14,9 +17,8 @@ apt-get install -y \
     python \
     python3 \
     xz-utils \
-    zip \
-    libatomic1
-    
+    zip 
+   
 rm -rf /var/lib/apt/lists/*
 
 cd ~
