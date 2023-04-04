@@ -18,6 +18,7 @@ apt-get install -y \
     python \
     python3 \
     xz-utils \
+    libatomic1 \
     zip 
    
 rm -rf /var/lib/apt/lists/*
