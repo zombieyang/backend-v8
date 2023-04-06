@@ -22,6 +22,7 @@ apt-get install -y \
 rm -rf /var/lib/apt/lists/*
 
 cd ~
+node -v
 echo "=====[ Getting Depot Tools ]====="	
 git clone -q https://chromium.googlesource.com/chromium/tools/depot_tools.git
 cd depot_tools
