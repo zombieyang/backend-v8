@@ -64,14 +64,11 @@ target_cpu = "arm"
 is_debug = false
 v8_enable_i18n_support= false
 v8_target_cpu = "arm"
-use_goma = false
 v8_static_library = true
 strip_debug_info = false
 v8_use_snapshot = false
 v8_use_external_startup_data = false
 symbol_level=1
-use_custom_libcxx=false
-use_custom_libcxx_for_host=true
 '
 ninja -C out.gn/arm.release -t clean
 ninja -C out.gn/arm.release wee8
