@@ -13,7 +13,7 @@ apt-get install -y \
     curl \
     wget \
     build-essential \
-    nodejs \
+    Node.js \
     python \
     python3 \
     xz-utils \
