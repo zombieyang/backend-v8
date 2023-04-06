@@ -66,8 +66,8 @@ v8_enable_i18n_support= false
 v8_target_cpu = "arm"
 v8_static_library = true
 strip_debug_info = false
-v8_use_snapshot = false
-v8_use_external_startup_data = false
+v8_use_snapshot = true
+v8_use_external_startup_data = true
 symbol_level=1
 '
 ninja -C out.gn/arm.release -t clean
