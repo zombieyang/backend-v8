@@ -14,7 +14,7 @@ apt-get install -y \
     curl \
     wget \
     build-essential \
-    nodejs \
+    Node.js \
     python \
     python3 \
     xz-utils \
@@ -68,7 +68,6 @@ v8_static_library = true
 strip_debug_info = false
 v8_use_snapshot = true
 v8_use_external_startup_data = true
-use_custom_libcxx=false 
 is_component_build=false
 symbol_level=1
 '
