@@ -46,7 +46,7 @@ script_path = os.path.join(__DIRNAME, 'node-script', 'add_arraybuffer_new_withou
 subprocess.run(['node', script_path])
 
 if PLATFORM == "linux" and ARCH=="arm64":
-subprocess.run(['python', "build/linux/sysroot_scripts/install-sysroot.py", "--arch=arm64"])
+    subprocess.run(['python', "build/linux/sysroot_scripts/install-sysroot.py", "--arch=arm64"])
 
 print("=====[ Building V8 ]=====")
 v8gen_args = [
