@@ -23,7 +23,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
-        cd $GITHUB_WORKSPACE
         apt-get update
         apt-get install -y \
             lsb-core \
@@ -47,6 +46,7 @@ jobs:
         tar xzf node-v14.21.3-linux-x64.tar.gz
         export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
         
+        cd $GITHUB_WORKSPACE
         python3 ./build.py ${{env.VERSION}} android arm64
     - uses: actions/upload-artifact@v2
       with:
@@ -62,7 +62,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
-        cd $GITHUB_WORKSPACE
         apt-get update
         apt-get install -y \
             lsb-core \
@@ -86,6 +85,7 @@ jobs:
         tar xzf node-v14.21.3-linux-x64.tar.gz
         export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
 
+        cd $GITHUB_WORKSPACE
         python3 ./build.py ${{env.VERSION}} android armv7
     - uses: actions/upload-artifact@v2
       with:
@@ -101,7 +101,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
-        cd $GITHUB_WORKSPACE
         apt-get update
         apt-get install -y \
             lsb-core \
@@ -125,6 +124,7 @@ jobs:
         tar xzf node-v14.21.3-linux-x64.tar.gz
         export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
         
+        cd $GITHUB_WORKSPACE
         python3 ./build.py ${{env.VERSION}} android x64
     - uses: actions/upload-artifact@v2
       with:
@@ -140,7 +140,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
-        cd $GITHUB_WORKSPACE
         apt-get update
         apt-get install -y \
             lsb-core \
@@ -163,6 +162,7 @@ jobs:
         tar xzf node-v14.21.3-linux-x64.tar.gz
         export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
 
+        cd $GITHUB_WORKSPACE
         python3 ./build.py ${{env.VERSION}} linux x64
     - uses: actions/upload-artifact@v2
       with:
@@ -178,7 +178,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run build script
       run: |
-        cd $GITHUB_WORKSPACE
         apt-get update
         apt-get install -y \
             lsb-core \
@@ -201,6 +200,7 @@ jobs:
         tar xzf node-v14.21.3-linux-x64.tar.gz
         export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
 
+        cd $GITHUB_WORKSPACE
         python3 ./build.py ${{env.VERSION}} linux arm64
     - uses: actions/upload-artifact@v2
       with:
