@@ -93,9 +93,9 @@ if PLATFORM == 'android':
     if ARCH == 'armv7':
         strip_cmd = ['third_party/android_ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/arm-linux-androideabi/bin/strip', '-g', '-S', '-d', '--strip-debug', '--verbose', 'out.gn/arm.release/obj/libwee8.a']
     if ARCH == 'arm64':
-        strip_cmd = ['third_party/android_ndk/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/aarch64-linux-android/bin/strip', '-g', '-S', '-d', '--strip-debug', '--verbose', 'out.gn/arm.release/obj/libwee8.a']
+        strip_cmd = ['third_party/android_ndk/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/aarch64-linux-android/bin/strip', '-g', '-S', '-d', '--strip-debug', '--verbose', 'out.gn/arm64.release/obj/libwee8.a']
     if ARCH == 'x64':
-        strip_cmd = ['third_party/android_ndk/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/bin/strip', '-g', '-S', '-d', '--strip-debug', '--verbose', 'out.gn/arm.release/obj/libwee8.a']
+        strip_cmd = ['third_party/android_ndk/toolchains/x86_64-4.9/prebuilt/linux-x86_64/x86_64-linux-android/bin/strip', '-g', '-S', '-d', '--strip-debug', '--verbose', 'out.gn/x64.release/obj/libwee8.a']
         
     subprocess.run(strip_cmd)
     
