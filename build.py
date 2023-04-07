@@ -45,6 +45,9 @@ print("=====[ add ArrayBuffer_New_Without_Stl ]=====")
 script_path = os.path.join(__DIRNAME, 'node-script', 'add_arraybuffer_new_without_stl.js')
 subprocess.run(['node', script_path])
 
+if PLATFORM == "linux" AND ARCH=="arm64" 
+subprocess.run(['python', "build/linux/sysroot_scripts/install-sysroot.py", "--arch=arm64"])
+
 print("=====[ Building V8 ]=====")
 v8gen_args = [
     'is_debug = false',
