@@ -83,10 +83,10 @@ v8gen_script_path = os.path.join(os.getcwd(), 'tools', 'dev', 'v8gen.py')
 subprocess.run(['python', v8gen_script_path] + v8gen_args)
 
 
-ninja_clean_cmd = ['ninja', '-C', 'out.gn/arm.release', '-t', 'clean']
+ninja_clean_cmd = ['ninja', '-C', 'out.gn/' + v8gen_base, '-t', 'clean']
 subprocess.run(ninja_clean_cmd)
 
-ninja_wee8_cmd = ['ninja', '-C', 'out.gn/arm.release', 'wee8']
+ninja_wee8_cmd = ['ninja', '-C', 'out.gn/' + v8gen_base, 'wee8']
 subprocess.run(ninja_wee8_cmd)
 
 if PLATFORM == 'android':
