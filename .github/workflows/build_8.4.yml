@@ -24,6 +24,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        apt-get update
         apt-get install -y \
             lsb-core \
             lib32stdc++6 \
@@ -62,6 +63,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        apt-get update
         apt-get install -y \
             lsb-core \
             lib32stdc++6 \
@@ -100,6 +102,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        apt-get update
         apt-get install -y \
             lsb-core \
             lib32stdc++6 \
@@ -138,6 +141,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        apt-get update
         apt-get install -y \
             lsb-core \
             git \
@@ -175,6 +179,7 @@ jobs:
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
+        apt-get update
         apt-get install -y \
             lsb-core \
             git \
