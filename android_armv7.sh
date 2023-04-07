@@ -25,7 +25,7 @@ rm -rf /var/lib/apt/lists/*
 cd ~
 wget https://nodejs.org/dist/latest-v14.x/node-v14.21.3-linux-x64.tar.gz
 tar xzf node-v14.21.3-linux-x64.tar.gz
-export PATH=$(pwd)/node-v14.21.3-linux-x64x/bin/:$PATH
+export PATH=$(pwd)/node-v14.21.3-linux-x64/bin/:$PATH
 
 echo "=====[ Getting Depot Tools ]====="	
 git clone -q https://chromium.googlesource.com/chromium/tools/depot_tools.git
