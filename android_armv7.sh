@@ -14,8 +14,6 @@ apt-get install -y \
     curl \
     wget \
     build-essential \
-    Node.js \
-    nodejs \
     python \
     python3 \
     xz-utils \
@@ -25,6 +23,10 @@ apt-get install -y \
 rm -rf /var/lib/apt/lists/*
 
 cd ~
+https://nodejs.org/dist/latest-v14.x/node-v14.21.3-linux-x64.tar.gz
+tar xzf node-v14.21.3-linux-x64.tar.gz
+export PATH=~/node-v14.21.3-linux-x6x/bin/:$PATH
+
 echo "=====[ Getting Depot Tools ]====="	
 git clone -q https://chromium.googlesource.com/chromium/tools/depot_tools.git
 cd depot_tools
