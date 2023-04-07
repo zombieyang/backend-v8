@@ -23,7 +23,7 @@ apt-get install -y \
 rm -rf /var/lib/apt/lists/*
 
 cd ~
-https://nodejs.org/dist/latest-v14.x/node-v14.21.3-linux-x64.tar.gz
+wget https://nodejs.org/dist/latest-v14.x/node-v14.21.3-linux-x64.tar.gz
 tar xzf node-v14.21.3-linux-x64.tar.gz
 export PATH=~/node-v14.21.3-linux-x6x/bin/:$PATH
 
