@@ -42,7 +42,7 @@ jobs:
             libatomic1 \
             zip 
         cd ~
-        wget https://nodejs.org/dist/latest-v14.x/node-v16.20.0-linux-x64.tar.gz
+        wget https://nodejs.org/dist/latest-v16.x/node-v16.20.0-linux-x64.tar.gz
         tar xzf node-v16.20.0-linux-x64.tar.gz
         export PATH=$(pwd)/node-v16.20.0-linux-x64/bin/:$PATH
         
@@ -83,7 +83,7 @@ jobs:
             libatomic1 \
             zip 
         cd ~
-        wget https://nodejs.org/dist/latest-v14.x/node-v16.20.0-linux-x64.tar.gz
+        wget https://nodejs.org/dist/latest-v16.x/node-v16.20.0-linux-x64.tar.gz
         tar xzf node-v16.20.0-linux-x64.tar.gz
         export PATH=$(pwd)/node-v16.20.0-linux-x64/bin/:$PATH
 
@@ -124,7 +124,7 @@ jobs:
             libatomic1 \
             zip 
         cd ~
-        wget https://nodejs.org/dist/latest-v14.x/node-v16.20.0-linux-x64.tar.gz
+        wget https://nodejs.org/dist/latest-v16.x/node-v16.20.0-linux-x64.tar.gz
         tar xzf node-v16.20.0-linux-x64.tar.gz
         export PATH=$(pwd)/node-v16.20.0-linux-x64/bin/:$PATH
         
@@ -164,7 +164,7 @@ jobs:
             xz-utils \
             zip 
         cd ~
-        wget https://nodejs.org/dist/latest-v14.x/node-v16.20.0-linux-x64.tar.gz
+        wget https://nodejs.org/dist/latest-v16.x/node-v16.20.0-linux-x64.tar.gz
         tar xzf node-v16.20.0-linux-x64.tar.gz
         export PATH=$(pwd)/node-v16.20.0-linux-x64/bin/:$PATH
 
@@ -204,7 +204,7 @@ jobs:
             xz-utils \
             zip 
         cd ~
-        wget https://nodejs.org/dist/latest-v14.x/node-v16.20.0-linux-x64.tar.gz
+        wget https://nodejs.org/dist/latest-v16.x/node-v16.20.0-linux-x64.tar.gz
         tar xzf node-v16.20.0-linux-x64.tar.gz
         export PATH=$(pwd)/node-v16.20.0-linux-x64/bin/:$PATH
 
