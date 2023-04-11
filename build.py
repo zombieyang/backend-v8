@@ -63,6 +63,7 @@ v8gen_args = [
 v8gen_base = 'x64.release'
 if PLATFORM == 'android':
     v8gen_args.append('target_os = "android"')
+    v8gen_args.append('use_custom_libcxx = true')
 elif PLATFORM == 'linux':
     v8gen_args.append('libcxx_abi_unstable = false')
     v8gen_args.append('v8_enable_pointer_compression=false')
