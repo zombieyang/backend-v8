@@ -35,6 +35,7 @@ call gclient sync
 
 echo =====[ Make dynamic_crt ]=====
 node %~dp0\node-script\rep.js  build\config\win\BUILD.gn
+node %~dp0\node-script\rep1.js  build\config\compiler\BUILD.gn
 
 echo =====[ add ArrayBuffer_New_Without_Stl ]=====
 node %~dp0\node-script\add_arraybuffer_new_without_stl.js .
